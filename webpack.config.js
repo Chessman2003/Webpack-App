@@ -24,7 +24,7 @@ module.exports = {
     entry: "./src/index.js",
     devtool: "source-map",
     output: {
-        path: path.resolve(_dirname, "dist"),
+        path: path.resolve(__dirname, "dist"),
         clean: true,
     },
 
@@ -32,7 +32,9 @@ module.exports = {
     devServer: {
         hot: true,
     },
-
+    resolve: {
+        extensions: ['.js', '.jsx']
+    },
 
     module: {
         rules: [
@@ -47,11 +49,12 @@ module.exports = {
                 ]
             },
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader",
                     options: {
+                        presets: ['@babel/env','@babel/preset-react'],
                         cacheDirectory: true,
                     }
                 }
