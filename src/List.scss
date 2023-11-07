@@ -1,0 +1,7 @@
+.listItem {
+    cursor: pointer
+    &.selected {
+        backgraund-color: red;
+    }
+};
+
