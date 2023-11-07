@@ -38,16 +38,7 @@ module.exports = {
 
     module: {
         rules: [
-            { test: /\.(html)$/, use: ["html-loader"]},
-            {
-                test: /\.(s[ac]|c)ss$/i,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    "css-loader",
-                    "postcss-loader",
-                    "sass-loader",
-                ]
-            },
+            // JS/JSX
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
@@ -59,6 +50,23 @@ module.exports = {
                     }
                 }
             },
+            // HTML
+            { 
+                test: /\.(html)$/, 
+                use: [
+                    "html-loader"
+                ]
+            },
+            // CSS/SCSS
+            {
+                test: /\.(s[ac]|c)ss$/i,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    "sass-loader",
+                ]
+            }
+            
         ],
     }
 }
